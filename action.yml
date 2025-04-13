@@ -1,0 +1,15 @@
+name: 'Scharf Action - Audit GitHub Third-Party Actions'
+description: 'This action audits all GitHub third-party actions in current Git repository'
+inputs:
+  raise-error:
+    description: 'Raises Exit 1 error on detection of mutable references. Default is false.'
+    required: false
+    default: false
+runs:
+  using: "composite"
+  steps:
+    - name: Install Scharf CLI & Run audit
+      run: -|
+        curl -sf https://raw.githubusercontent.com/cybrota/scharf/refs/heads/main/install.sh | sh
+        scharf audit $([[ "${{ inputs.raise-error }}" == "true" ]] && echo "--raise-error")
+      shell: bash
