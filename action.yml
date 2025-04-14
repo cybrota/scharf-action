@@ -9,7 +9,7 @@ runs:
   using: "composite"
   steps:
     - name: Install Scharf CLI & Run audit
-      run: -|
+      run: |
         curl -sf https://raw.githubusercontent.com/cybrota/scharf/refs/heads/main/install.sh | sh
         export PATH=$PATH:/usr/local/bin
         scharf audit $([[ "${{ inputs.raise-error }}" == "true" ]] && echo "--raise-error")
