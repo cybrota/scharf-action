@@ -1,7 +1,7 @@
 # scharf-action
-A GitHub action to detect mutable third-party references used in GitHub repository.
+A GitHub action to detect mutable third-party references used in a GitHub repository.
 
-This uses Scharf tool to identify actions with mutable tags.
+This action uses Cybrota Scharf tool to identify actions with mutable tags. See https://github.com/cybrota/scharf for more details.
 
 ## Usage
 
@@ -24,5 +24,20 @@ jobs:
 
 * raise-error (Raises Exit 1 error if any violating actions found. Default is false)
 
+## Why mutable tags in GitHub CI/CD workflows are bad ?
+
+Using mutable references like tag-based or branch-based references in your CI/CD workflows can lead to unexpected changes or potential security vulnerabilities if the referenced action is compromised by malicious actors.
+
+Scharf lets you identify and mitigate against supply-chain attacks similar to "tj-actions/changed-files" compromise occured in March 2025.
+
+"GitHub's own official tutorials use tags instead of full commit shas. What a mess" - A YCombinator Hackernews Reader
+
+"Github Actions is definitely a vector for abuse." - Another Hackernews Reader
+
 ## Links
 * https://github.com/cybrota/scharf
+* https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-github-action-cve-2025-30066
+
+* https://alexwlchan.net/2025/github-actions-audit/
+
+* https://github.com/advisories/ghsa-mrrh-fwg8-r2c3
