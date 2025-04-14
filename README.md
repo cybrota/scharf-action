@@ -24,6 +24,25 @@ jobs:
 
 * raise-error (Raises Exit 1 error if any violating actions found. Default is false)
 
+## Sample output
+
+If there are matches, you will see a table on the GitHub action log
+
+```ascii
+Mutable references found in your GitHub actions. Please replace them to secure your CI from supply chain attacks.
++---------------------+-------------------------------------------------------+------------------------------------------+
+|        MATCH        |                       FILEPATH                        |             REPLACE WITH SHA             |
++---------------------+-------------------------------------------------------+------------------------------------------+
+| actions/checkout@v4 | /Users/neo/scharf/.github/workflows/ci.yml | 11bd71901bbe5b1630ceea73d27597364c9af683 |
++---------------------+-------------------------------------------------------+------------------------------------------+
+```
+If no macthes found, you will see:
+
+```ascii
+No mutable references found. Good job!
+```
+
+
 ## Why mutable tags in GitHub CI/CD workflows are bad ?
 
 Using mutable references like tag-based or branch-based references in your CI/CD workflows can lead to unexpected changes or potential security vulnerabilities if the referenced action is compromised by malicious actors.
