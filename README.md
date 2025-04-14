@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Audit GitHub actions
-        uses: cybrota/scharf-action@c0d0eb13ca383e5a3ec947d754f61c9e61fab5ba
+        uses: cybrota/scharf-action@71662a3ec833b0c915a67f21e500e81786b95901 #v1
         with:
           raise-error: true
 ```
